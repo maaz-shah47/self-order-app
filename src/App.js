@@ -1,10 +1,44 @@
+import {
+  Container,
+  createMuiTheme,
+  CssBaseline,
+  Paper,
+  ThemeProvider,
+} from '@material-ui/core';
+import HomeScreen from './screens/HomeScreen';
+
 import './App.css';
 
+const theme = createMuiTheme({
+  typography: {
+    h1: {
+      fontWeight: 'bold',
+    },
+    h2: {
+      fontSize: '2rem',
+      color: 'black',
+    },
+    h3: {
+      fontSize: '1.8rem',
+      fontWeight: 'bold',
+      color: 'white',
+    },
+  },
+  palette: {
+    primary: { main: '#ff1744' },
+    secondary: { main: '#118e16', contrastText: '#ffffff' },
+  },
+});
 function App() {
   return (
-    <div className='App'>
-      <h1>Welcoome</h1>
-    </div>
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
+      <Container maxWidth='sm'>
+        <Paper>
+          <HomeScreen />
+        </Paper>
+      </Container>
+    </ThemeProvider>
   );
 }
 
