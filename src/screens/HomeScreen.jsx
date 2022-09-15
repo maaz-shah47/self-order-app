@@ -1,16 +1,18 @@
 import React from 'react';
-import Logo from '../components/Logo';
+import { useNavigate } from 'react-router-dom';
 
+import Logo from '../components/Logo';
 import { Box, Card, CardActionArea, Typography } from '@material-ui/core';
 import { TouchApp } from '@material-ui/icons';
 import { useStyles } from '../styles';
 
-const HomeScreen = () => {
+const HomeScreen = (props) => {
   const styles = useStyles();
+  const navigate = useNavigate();
 
   return (
     <Card>
-      <CardActionArea>
+      <CardActionArea onClick={() => navigate('/choose')}>
         <Box className={[styles.root, styles.red]}>
           <Box className={[styles.main, styles.center]}>
             <Typography component='h6' variant='h6'>

@@ -8,6 +8,8 @@ import {
 import HomeScreen from './screens/HomeScreen';
 
 import './App.css';
+import { Route, Routes } from 'react-router-dom';
+import ChooseScreen from './screens/ChooseScreen';
 
 const theme = createMuiTheme({
   typography: {
@@ -29,13 +31,17 @@ const theme = createMuiTheme({
     secondary: { main: '#118e16', contrastText: '#ffffff' },
   },
 });
+
 function App() {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <Container maxWidth='sm'>
         <Paper>
-          <HomeScreen />
+          <Routes>
+            <Route path='/' element={<HomeScreen />} />
+            <Route path='/choose' element={<ChooseScreen />} />
+          </Routes>
         </Paper>
       </Container>
     </ThemeProvider>
